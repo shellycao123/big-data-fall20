@@ -22,7 +22,7 @@ public class MaxTemperatureMapper
     } else {
       airTemperature = Integer.parseInt(line.substring(5, 10));
     }
-    String quality = line.substring(92, 93);
+    String quality = line.substring(10, 11);
     if (airTemperature != MISSING && quality.matches("[01459]")) {
       context.write(new Text(year), new IntWritable(airTemperature));
     }
