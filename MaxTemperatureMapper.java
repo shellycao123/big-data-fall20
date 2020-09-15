@@ -16,13 +16,14 @@ public class MaxTemperatureMapper
     
     String line = value.toString();
     String year = line.substring(0, 4);
-    int airTemperature;
+    int airTemperature = MISSING;
     if (line.charAt(5) == '+') { // parseInt doesn't like leading plus signs
-      airTemperature = Integer.parseInt(line.substring(6, 10));
+      airTemperature = Integer.parseInt(line.substring(5, 9));
     } else {
-      airTemperature = Integer.parseInt(line.substring(5, 10));
+      airTemperature = Integer.parseInt(line.substring(4, 9));
     }
-    String quality = line.substring(10, 11);
+    System.out.println(airTemperature);
+    String quality = line.substring(9, 10);
     if (airTemperature != MISSING && quality.matches("[01459]")) {
       context.write(new Text(year), new IntWritable(airTemperature));
     }
