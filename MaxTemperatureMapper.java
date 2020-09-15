@@ -17,7 +17,7 @@ public class MaxTemperatureMapper
     String line = value.toString();
     String year = line.substring(0, 4);
     int airTemperature;
-    if (line.charAt(87) == '+') { // parseInt doesn't like leading plus signs
+    if (line.charAt(5) == '+') { // parseInt doesn't like leading plus signs
       airTemperature = Integer.parseInt(line.substring(6, 10));
     } else {
       airTemperature = Integer.parseInt(line.substring(5, 10));
