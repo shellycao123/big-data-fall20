@@ -22,6 +22,9 @@ public class CountMapper
             if(lines[i].contains(keys[j])){
                 context.write(new Text(originalKeys[j]), new IntWritable(1));
             }
+            else{
+                context.write(new Text(originalKeys[j]), new IntWritable(0));
+            }
         }
     }
     
