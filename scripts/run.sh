@@ -5,12 +5,12 @@ rm *.class
 rm *.jar
 
 # Compile
-javac -classpath `yarn classpath` -d . ../"$hw"/"$mapper".java
-javac -classpath `yarn classpath` -d . ../"$hw"/"$reducer".java
-javac -classpath `yarn classpath`:. -d . ../"$hw"/"$program".java
+javac -classpath `yarn classpath` -d . ../hw3/CountMapper.java
+javac -classpath `yarn classpath` -d . ../hw3/CountReducer.java
+javac -classpath `yarn classpath`:. -d . ../hw3/MapReduceCount.java
 
 # Create jar file
-jar -cvf "$jar".jar *.class
+jar -cvf count.jar *.class
 
 # Run the program
-hadoop jar "$jar".jar "$program" /user/"$USER"/hw/input/input.txt /user/"$USER"/hw/output
+hadoop jar cunt.jar MapReduceCount /user/"$USER"/hw/input/input.txt /user/"$USER"/hw/output
