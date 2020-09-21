@@ -17,9 +17,11 @@ public class CountMapper
     String[] originalKeys = {"hackathon", "Dec", "Chicago", "Java"};
     String[] keys =  {"hackathon", "dec", "chicago", "java"};
     
-    for(int i = 0; i < 4; i++){
-        if(line.contains(keys[i])){
-            context.write(new Text(originalKeys[i]), new IntWritable(1));
+    for(int i = 0 ; i < lines.length; i++){
+        for(int j = 0; j < 4; j++){
+            if(lines[i].contains(keys[j])){
+                context.write(new Text(originalKeys[j]), new IntWritable(1));
+            }
         }
     }
     
