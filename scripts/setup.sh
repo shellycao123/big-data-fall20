@@ -5,7 +5,7 @@ hdfs dfs -mkdir hw
 hdfs dfs -mkdir hw/input
 
 # Populate the input directory in HDFS with the input file
-hdfs dfs -put ../"$hw"/input.txt hw/input
+hdfs dfs -put ../hw3/input.txt hw/input
 
 # Verify what is in the input data directory
 hdfs dfs -ls hw/input
