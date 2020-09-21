@@ -25,6 +25,7 @@ public class MapReduceCount {
   
       job.setOutputKeyClass(Text.class);
       job.setOutputValueClass(IntWritable.class);
+      job.setNumReduceTasks(1);
       
       System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
