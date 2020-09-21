@@ -13,16 +13,15 @@ public class CountMapper
   public void map(LongWritable key, Text value, Context context)
       throws IOException, InterruptedException {
     
-    String line = value.toString();
+    String[] lines = value.toString().toLowerCase().split("\n");
     String[] originalKeys = {"hackathon", "Dec", "Chicago", "Java"};
     String[] keys =  {"hackathon", "dec", "chicago", "java"};
-    context.write(new Text(line), new IntWritable(1));
-   /* for(int i = 0; i < 4; i++){
+    
+    for(int i = 0; i < 4; i++){
         if(line.contains(keys[i])){
-            System.out.println(originalKeys[i]);
             context.write(new Text(originalKeys[i]), new IntWritable(1));
         }
-    }*/
+    }
     
   }
 }
