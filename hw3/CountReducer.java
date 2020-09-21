@@ -12,10 +12,11 @@ public class CountReducer
       Context context)
       throws IOException, InterruptedException {
     
-    int count = 0;
+    /*int count = 0;
     for (IntWritable value : values) {
       count += value.get();
     }
-    context.write(key, new IntWritable(count));
+    context.write(key, new IntWritable(count));*/
+    context.write(key, new IntWritable(1));
   }
 }
