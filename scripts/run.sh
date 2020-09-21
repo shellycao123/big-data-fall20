@@ -13,4 +13,4 @@ javac -classpath `yarn classpath`:. -d . ../hw3/MapReduceCount.java
 jar -cvf count.jar *.class
 
 # Run the program
-hadoop jar cunt.jar MapReduceCount /user/"$USER"/hw/input/input.txt /user/"$USER"/hw/output
+hadoop jar count.jar MapReduceCount /user/"$USER"/hw/input/input.txt /user/"$USER"/hw/output
