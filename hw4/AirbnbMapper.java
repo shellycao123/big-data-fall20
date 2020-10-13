@@ -14,9 +14,8 @@ public class AirbnbMapper
       throws IOException, InterruptedException {
     
     String[] info = value.toString().split(",");
-    for(int i = 1 ; i < info.length; i++){
-        context.write(new Text(info[4] + " "+info[5]), new IntWritable(1));
-    }
+    context.write(new Text(info[4] + " "+info[5]), new IntWritable(1));
+    
     
   }
 }
