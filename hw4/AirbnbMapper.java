@@ -18,7 +18,7 @@ public class AirbnbMapper
     for(String line : info){
       row = line.split(",");
       if(row.length >= 6){
-        context.write(new Text(row[4] + " "+ row[5]), new IntWritable(1));
+        context.write(new Text(row[5] + " "+ row[4]), new IntWritable(1));
       }
     }
     
