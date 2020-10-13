@@ -3,11 +3,6 @@
 # outputs the result (assuming 1 reducer was used).
 
 # Clean out HDFS
-hw="hw3"
-mapper="CountMapper"
-reducer='CountReducer'
-program='MapReduceCount'
-jar='MapReduceCount'
 
 ./clean.sh
 

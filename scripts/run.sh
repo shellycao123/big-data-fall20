@@ -5,9 +5,9 @@ rm *.class
 rm *.jar
 
 # Compile
-javac -classpath `yarn classpath` -d . ../hw3/CountMapper.java
-javac -classpath `yarn classpath` -d . ../hw3/CountReducer.java
-javac -classpath `yarn classpath`:. -d . ../hw3/MapReduceCount.java
+javac -classpath `yarn classpath` -d . ../hw4/Mapper.java
+javac -classpath `yarn classpath` -d . ../hw4/Reducer.java
+javac -classpath `yarn classpath`:. -d . ../hw4/AirbnbCount.java
 
 # Create jar file
 jar -cvf count.jar *.class
