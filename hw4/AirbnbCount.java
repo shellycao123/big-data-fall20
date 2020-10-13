@@ -14,14 +14,14 @@ public class AirbnbCount {
       }
       
       Job job = new Job();
-      job.setJarByClass(MapReduceCount.class);
+      job.setJarByClass(AirbnbCount.class);
       job.setJobName("Airbnb Count");
   
       FileInputFormat.addInputPath(job, new Path(args[0]));
       FileOutputFormat.setOutputPath(job, new Path(args[1]));
       
-      job.setMapperClass(Mapper.class);
-      job.setReducerClass(Reducer.class);
+      job.setMapperClass(AirbnbMapper.class);
+      job.setReducerClass(AirbnbReducer.class);
   
       job.setOutputKeyClass(Text.class);
       job.setOutputValueClass(IntWritable.class);
