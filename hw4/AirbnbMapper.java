@@ -13,8 +13,8 @@ public class AirbnbMapper
   public void map(LongWritable key, Text value, Context context)
       throws IOException, InterruptedException {
     
-    String[] info = value.toString().split(",");
-    context.write(new Text(info[4] + " "+info[5]), new IntWritable(1));
+    String info = value.toString();
+    context.write(new Text(info), new IntWritable(1));
     
     
   }
