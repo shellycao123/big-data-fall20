@@ -5,8 +5,8 @@ rm *.class
 rm *.jar
 
 # Compile
-javac -classpath `yarn classpath` -d . ./hw4/Mapper.java
-javac -classpath `yarn classpath` -d . ./hw4/Reducer.java
+javac -classpath `yarn classpath` -d . ./hw4/AirbnbMapper.java
+javac -classpath `yarn classpath` -d . ./hw4/AirbnbReducer.java
 javac -classpath `yarn classpath`:. -d . ./hw4/AirbnbCount.java
 
 # Create jar file
