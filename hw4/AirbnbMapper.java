@@ -1,5 +1,5 @@
 import java.io.IOException;
-
+import java.util.Arrays;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -18,7 +18,7 @@ public class AirbnbMapper
     for(String line : info){
       row = line.split(",");
       if(row.length < 6){
-        context.write(new Text(row.toString()), new IntWritable(1));
+        context.write(new Text(Arrays.toString(row)), new IntWritable(1));
       }
     }
     
