@@ -15,7 +15,6 @@ public class AirbnbReducer
     int count = 0;
     for (IntWritable value : values) {
       count += value.get();
-      System.out.println(key.toString());
     }
     context.write(key, new IntWritable(count));
   }
