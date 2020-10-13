@@ -13,4 +13,4 @@ javac -classpath `yarn classpath`:. -d . ../hw4/AirbnbCount.java
 jar -cvf count.jar *.class
 
 # Run the program
-hadoop jar count.jar AirbnbCount /user/"$USER"/hw/input/input.txt /user/"$USER"/hw/output
+hadoop jar count.jar AirbnbCount /user/"$USER"/hw/input/AB_NYC_2019.csv /user/"$USER"/hw/output
