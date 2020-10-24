@@ -80,7 +80,7 @@ def format(dic):
         if key != 'BIO':
             result += f'\t{key}={value}'
     if 'BIO' in dic:
-        result += f'\tBIO={dic["BIO"]}'
+        result += f'\t{dic["BIO"]}'
     result += '\n'
     dic['word'] = word
     return result
