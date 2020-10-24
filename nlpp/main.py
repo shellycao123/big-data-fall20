@@ -62,11 +62,11 @@ def process(line, prev_line, two_before, isTraining):
             result['previous_BIO'] = prev_line['BIO']
 
     if len(two_before) != 0:#not first word in sentence
-        result['two_before_POS'] = prev_line['POS']
-        result['two_before_word'] = prev_line['word']
-        result['two_before_stem'] = prev_line['stem']
+        result['two_before_POS'] = two_before['POS']
+        result['two_before_word'] = two_before['word']
+        result['two_before_stem'] = two_before['stem']
         if isTraining: 
-            result['two_before_BIO'] = prev_line['BIO']
+            result['two_before_BIO'] = two_before['BIO']
 
     return result
 
