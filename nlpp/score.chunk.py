@@ -33,7 +33,7 @@ def score (keyFileName, responseFileName):
 			else:
 				print("sentence break expected at line " + str(i))
 				exit()
-			keyFields = key[i].split('\t')
+		keyFields = key[i].split('\t')
 		if len(keyFields) != 2:
 			print("format error in key at line " + str(i) + ":" + key[i])
 			exit()
