@@ -39,7 +39,7 @@ def score (keyFileName, responseFileName):
 			exit()
 			keyToken = keyFields[0]
 			keyTag = keyFields[1][0:1]
-			responseFields = response[i].split('\t')
+		responseFields = response[i].split('\t')
 		if len(responseFields) != 2:
 			print("format error at line " + str(i))
 			exit()
