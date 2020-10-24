@@ -35,17 +35,17 @@ def process(line, prev_line, isTraining):
     result['POS'] = words[1].strip()
     if isTraining:
         result['BIO'] = words[2].strip()
-        
+
     if words[0][len(words[0]) - 2:] == 'ed':
-        words['stem'] = words[0][:len(words[0]) - 2]
+        result['stem'] = words[0][:len(words[0]) - 2]
     elif words[0][len(words[0]) - 3:] == 'ing':
-        words['stem'] = words[0][:len(words[0]) - 3]
+        result['stem'] = words[0][:len(words[0]) - 3]
     elif words[0][len(words[0]) - 2:] == 'es':
-        words['stem'] = words[0][:len(words[0]) - 2]
+        result['stem'] = words[0][:len(words[0]) - 2]
     elif words[0][len(words[0]) - 1] == 's':
-        words['stem'] = words[0][:len(words[0]) - 1]
+        result['stem'] = words[0][:len(words[0]) - 1]
     else:
-        words['stem'] = words[0]
+        result['stem'] = words[0]
 
     if len(prev_line) != 0:#not first word in sentence
         result['prev_POS'] = prev_line['POS']
