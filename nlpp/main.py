@@ -42,7 +42,6 @@ def process(line, prev_line, two_before, isTraining):
     result['POS'] = words[1].strip()
     if isTraining:
         result['BIO'] = words[2].strip()
-    words[0] = words[0].lower()
     if words[0][len(words[0]) - 2:] == 'ed':
         result['stem'] = words[0][:len(words[0]) - 2]
     elif words[0][len(words[0]) - 3:] == 'ing':
