@@ -43,8 +43,9 @@ def score (keyFileName, responseFileName):
 		if len(responseFields) != 2:
 			print("format error at line " + str(i))
 			exit()
-			responseToken = responseFields[0]
-			responseTag = responseFields[1][0:1]
+		responseToken = responseFields[0]
+		responseTag = responseFields[1][0:1]
+		if responseToken != keyToken:
 			print("token mismatch at line " + str(i))
 			print("ResponseToken: " + str(responseToken))
 			print("KeyToken: " + str(keyToken))
