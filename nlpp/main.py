@@ -5,14 +5,18 @@ def main():
     isTraining = sys.argv[2]
     f = open(file_name, 'r')
     prev_process = {}
+    two_before = {}
     if isTraining == 'training':
         w = open('training.feature', 'w',newline='\n')
         for line in f:
             if len(line.strip()) == 0:
                 w.write("\n")
+                two_before = prev_process
                 prev_process = {}
             else:
-                prev_process = process(line, prev_process, True)
+                tem = prev_process
+                prev_process = process(line, prev_process, two_before, True)
+                two_before = tem
                 w.write(format(prev_process))
         w.close()
     else:
@@ -20,15 +24,18 @@ def main():
         for line in f:
             if len(line.strip()) == 0:
                 w.write("\n")
+                two_before = prev_process
                 prev_process = {}
             else:
-                prev_process = process(line, prev_process, False)
+                tem = prev_process
+                prev_process = process(line, prev_process, two_before, False)
+                two_before = tem
                 w.write(format(prev_process))
         w.close()
     f.close()
 
 
-def process(line, prev_line, isTraining):
+def process(line, prev_line, two_before, isTraining):
     words = line.split("\t")
     result = {}
     result['word'] = words[0]
@@ -53,6 +60,13 @@ def process(line, prev_line, isTraining):
         result['prev_stem'] = prev_line['stem']
         if isTraining: 
             result['previous_BIO'] = prev_line['BIO']
+
+    if len(two_before) != 0:#not first word in sentence
+        result['two_before_POS'] = prev_line['POS']
+        result['two_before_word'] = prev_line['word']
+        result['two_before_stem'] = prev_line['stem']
+        if isTraining: 
+            result['two_before_BIO'] = prev_line['BIO']
 
     return result
 
