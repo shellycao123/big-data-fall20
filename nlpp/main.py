@@ -35,11 +35,22 @@ def process(line, prev_line, isTraining):
     result['POS'] = words[1].strip()
     if isTraining:
         result['BIO'] = words[2].strip()
+    elif words[0][len(words[0]) - 2:] == 'ed':
+        words['stem'] = words[0][:len(words[0]) - 2]
+    elif words[0][len(words[0]) - 3:] == 'ing':
+        words['stem'] = words[0][:len(words[0]) - 3]
+    elif words[0][len(words[0]) - 2:] == 'es':
+        words['stem'] = words[0][:len(words[0]) - 2]
+    elif words[0][len(words[0]) - 1] == 's':
+        words['stem'] = words[0][:len(words[0]) - 1]
+    else:
+        words['stem'] = words[0]
 
-    result['previous_BIO'] = '@@'
+    result['previous_BIO'] = prev_line['BIO']
     if len(prev_line) != 0:#not first word in sentence
         result['prev_POS'] = prev_line['POS']
         result['prev_word'] = prev_line['word']
+        result['prev_stem'] = prev_line['stem']
 
     return result
 
@@ -51,7 +62,6 @@ def format(dic):
     for key, value in dic.items():
         if key != 'BIO':
             result += f'\t{key}={value}'
-
     if 'BIO' in dic:
         result += f'\tBIO={dic["BIO"]}'
     result += '\n'
