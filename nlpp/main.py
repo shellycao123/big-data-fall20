@@ -37,6 +37,7 @@ def main():
 
 def process(line, prev_line, two_before, isTraining):
     words = line.split("\t")
+    words[0] = words[0].lower()
     result = {}
     result['word'] = words[0]
     result['POS'] = words[1].strip()
