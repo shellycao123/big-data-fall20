@@ -16,6 +16,6 @@ public class CountRecsReducer
     for (IntWritable value : values) {
       count++;
     }
-    context.write(NullWritable.get(), key);
+    context.write(NullWritable.get(), new IntWritable(count));
   }
 }
