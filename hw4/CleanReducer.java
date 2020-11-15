@@ -12,7 +12,7 @@ public class CleanReducer
   public void reduce(Text key, Iterable<Text> values,
       Context context)
       throws IOException, InterruptedException {
-    String result;
+    String result = "";
     for (Text value : values) {
       result = value.toString();
     }
