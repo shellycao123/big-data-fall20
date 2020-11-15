@@ -56,7 +56,7 @@ public class CleanMapper
   public int parseInt(String s){
     char[] chs = s.toCharArray();
     int cur = 0;
-    for(char c : s){
+    for(char c : chs){
       if(!isInt(c)){
         return -1;
       }
