@@ -8,7 +8,6 @@ import org.apache.hadoop.mapreduce.Reducer;
 public class CountRecsReducer
   extends Reducer<Text, Text, NullWritable, IntWritable> {
   
-  @Override
   public void reduce(Text key, Iterable<IntWritable> values,
       Context context)
       throws IOException, InterruptedException {
