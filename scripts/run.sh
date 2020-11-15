@@ -5,12 +5,13 @@ rm *.class
 rm *.jar
 
 # Compile
-javac -classpath `yarn classpath` -d . ../hw4/CleanMapper.java
-javac -classpath `yarn classpath` -d . ../hw4/CleanReducer.java
-javac -classpath `yarn classpath`:. -d . ../hw4/Clean.java
+javac -classpath `yarn classpath` -d . ../hw4/CountRecsMapper.java
+javac -classpath `yarn classpath` -d . ../hw4/CountRecsReducer.java
+javac -classpath `yarn classpath`:. -d . ../hw4/CountRecs.java
 
 # Create jar file
-jar -cvf clean.jar *.class
+jar -cvf CountRecs.jar *.class
 
 # Run the program
-hadoop jar clean.jar Clean /user/sc6472/input/hbo.csv /user/sc6472/output
+hadoop jar CountRecs.jar CountRecs /user/sc6472/input/hbo.csv /user/sc6472/count_origin
+hdfs dfs -cat hw/output/part-r-00000
