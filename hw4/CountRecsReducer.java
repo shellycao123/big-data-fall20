@@ -5,7 +5,7 @@ import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class CleanReducer
+public class CountRecsReducer
   extends Reducer<Text, Text, NullWritable, IntWritable> {
   
   @Override
