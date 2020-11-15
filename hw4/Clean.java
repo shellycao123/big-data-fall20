@@ -9,22 +9,22 @@ public class AirbnbCount {
 
     public static void main(String[] args) throws Exception {
       if (args.length != 2) {
-        System.err.println("Usage: MapReduceCount <input path> <output path>");
+        System.err.println("Usage: CleanMapReduce <input path> <output path>");
         System.exit(-1);
       }
       
       Job job = new Job();
-      job.setJarByClass(AirbnbCount.class);
-      job.setJobName("Airbnb Count");
+      job.setJarByClass(Clean.class);
+      job.setJobName("Clean");
   
       FileInputFormat.addInputPath(job, new Path(args[0]));
       FileOutputFormat.setOutputPath(job, new Path(args[1]));
       
-      job.setMapperClass(AirbnbMapper.class);
-      job.setReducerClass(AirbnbReducer.class);
+      job.setMapperClass(CleanMapper.class);
+      job.setReducerClass(CleanReducer.class);
   
       job.setOutputKeyClass(Text.class);
-      job.setOutputValueClass(IntWritable.class);
+      job.setOutputValueClass(Text.class);
       job.setNumReduceTasks(1);
       
       System.exit(job.waitForCompletion(true) ? 0 : 1);
