@@ -47,8 +47,8 @@ public class CleanMapper
         sb.append(',');
       }
     }
-    if(sb.charAt(sb.size() - 1) == ','){
-      sb.delete(sb.size() - 1);
+    if(sb.charAt(sb.length() - 1) == ','){
+      sb.delete(sb.length() - 1);
     }
     sb.append("\"");
 
