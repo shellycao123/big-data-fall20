@@ -3,15 +3,15 @@
 # Remove class and jar files
 rm *.class
 rm *.jar
-
+hdfs dfs -rm -r -f output
 # Compile
-javac -classpath `yarn classpath` -d . ../hw4/CountRecsMapper.java
-javac -classpath `yarn classpath` -d . ../hw4/CountRecsReducer.java
-javac -classpath `yarn classpath`:. -d . ../hw4/CountRecs.java
+javac -classpath `yarn classpath` -d . ../hw4/CleanMapper.java
+javac -classpath `yarn classpath` -d . ../hw4/CleanReducer.java
+javac -classpath `yarn classpath`:. -d . ../hw4/Clean.java
 
 # Create jar file
-jar -cvf CountRecs.jar *.class
+jar -cvf Clean.jar *.class
 
 # Run the program
-hadoop jar CountRecs.jar CountRecs /user/sc6472/input/hbo.csv /user/sc6472/count_origin
+hadoop jar Clean.jar Clean /user/sc6472/input/hbo.csv /user/sc6472/output
 hdfs dfs -cat count_origin/part-r-00000
