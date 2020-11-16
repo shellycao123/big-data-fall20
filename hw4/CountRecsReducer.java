@@ -6,7 +6,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
 public class CountRecsReducer
-  extends Reducer<Text, IntWritable, NullWritable, IntWritable> {
+  extends Reducer<Text, IntWritable, Text, IntWritable> {
   
     @Override
   public void reduce(Text key, Iterable<IntWritable> values,
@@ -16,6 +16,6 @@ public class CountRecsReducer
     for (IntWritable value : values) {
       count++;
     }
-    context.write(NullWritable.get(), new IntWritable(count));
+    context.write(new Text("Total rows"), new IntWritable(count));
   }
 }
