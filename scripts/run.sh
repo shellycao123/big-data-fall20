@@ -14,4 +14,4 @@ jar -cvf Clean.jar *.class
 
 # Run the program
 hadoop jar Clean.jar Clean /user/sc6472/input/hbo.csv /user/sc6472/output
-hdfs dfs -cat count_origin/part-r-00000
+hdfs dfs -cat output/part-r-00000
