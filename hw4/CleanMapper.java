@@ -44,9 +44,10 @@ public class CleanMapper
     for(int i = 0 ; i < list.length; i++){
       if(parseInt(row[i + 8]) == 1){
         sb.append(list[i]);
-        sb.append(' ');
+        sb.append(',');
       }
     }
+    sb.delete(sb.size() - 1);
     sb.append("\"");
 
     context.write(new Text(row[0]), new Text(sb.toString()));
