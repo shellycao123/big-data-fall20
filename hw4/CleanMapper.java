@@ -48,7 +48,7 @@ public class CleanMapper
       }
     }
     if(sb.charAt(sb.length() - 1) == ','){
-      sb.delete(sb.length() - 1);
+      sb.deleteCharAt(sb.length() - 1);
     }
     sb.append("\"");
 
