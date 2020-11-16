@@ -34,7 +34,7 @@ public class CleanMapper
     }
     sb.append(',');
     sb.append(row[2]);
-
+    sb.append(",\"");
     String[] list = {"Action", "Animation","Anime", "Biography", "Children", "Comedy", 
     "Crime", "Cult", "Documentary", "Drama", "Family", "Fantasy", "Food", "Game Show", 
     "History", "Home Garden", "Horror", "Independent", "LGBTQ", "Musical", "Mistery", 
@@ -43,10 +43,11 @@ public class CleanMapper
     int index = 8;
     for(int i = 0 ; i < list.length; i++){
       if(parseInt(row[i + 8]) == 1){
-        sb.append(',');
         sb.append(list[i]);
+        sb.append(' ');
       }
     }
+    sb.append("\"");
 
     context.write(new Text(row[0]), new Text(sb.toString()));
     
