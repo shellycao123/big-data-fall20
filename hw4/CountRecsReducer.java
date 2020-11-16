@@ -6,7 +6,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
 public class CountRecsReducer
-  extends Reducer<Text, Text, NullWritable, IntWritable> {
+  extends Reducer<Text, IntWritable, NullWritable, IntWritable> {
   
     @Override
   public void reduce(Text key, Iterable<IntWritable> values,

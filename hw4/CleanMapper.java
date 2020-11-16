@@ -47,9 +47,10 @@ public class CleanMapper
         sb.append(',');
       }
     }
-    if(sb.charAt(sb.length() - 1) == ','){
-      sb.deleteCharAt(sb.length() - 1);
+    if(sb.charAt(sb.length() - 1) != ','){
+      return;
     }
+    sb.deleteCharAt(sb.length() - 1);
     sb.append("\"");
 
     context.write(new Text(row[0]), new Text(sb.toString()));
