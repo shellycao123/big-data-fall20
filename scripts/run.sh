@@ -13,6 +13,6 @@ javac -classpath `yarn classpath`:. -d . ../hw4/Year.java
 jar -cvf year.jar *.class
 
 # Run the program
-hadoop jar year.jar Year /user/sc6472/project/project_input/origin/hbo.csv /user/sc6472/project_output/year_distribution
-hdfs dfs -cat project_output/year_distribution/part-r-00000
-hdfs dfs -copyToLocal ./project/project_output/year_distribution/part-r-00000 /home/sc6472/year_distribution.txt
+hadoop jar year.jar Year /user/sc6472/project/project_input/cleaned.csv /user/sc6472/project/project_output/year_distribution
+hdfs dfs -cat project/project_output/year_distribution/part-r-00000
+hdfs dfs -copyToLocal project/project_output/year_distribution/part-r-00000 /home/sc6472/year_distribution.txt
