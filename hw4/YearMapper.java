@@ -6,7 +6,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.io.IntWritable;
 
 
-public class YearRecsMapper
+public class YearMapper
   extends Mapper<LongWritable, Text, Text, IntWritable> {
 
   
