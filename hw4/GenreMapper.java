@@ -15,7 +15,9 @@ public class GenreMapper
       throws IOException, InterruptedException {
     String[] info = value.toString().split(",")[3].split("[\",]");
     for(String genre : info){
-        context.write(new Text(genre), new IntWritable(1));
+        if(genre.length() != 0){
+            context.write(new Text(genre), new IntWritable(1));
+        }
     }
 
     
