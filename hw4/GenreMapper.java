@@ -13,7 +13,7 @@ public class GenreMapper
   @Override
   public void map(LongWritable key, Text value, Context context)
       throws IOException, InterruptedException {
-    String[] info = value.toString().split("[,\"]");
+    String[] info = value.toString().split("[,\"{1}]");
     for(int i = 3; i < info.length; i++){
         context.write(new Text(info[i]), new IntWritable(1));
     }
