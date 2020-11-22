@@ -3,7 +3,7 @@
 # Remove class and jar files
 rm *.class
 rm *.jar
-hdfs dfs -rm -r -f project_output/year_distribution
+hdfs dfs -rm -r -f project/project_output/year_distribution
 # Compile
 javac -classpath `yarn classpath` -d . ../hw4/YearMapper.java
 javac -classpath `yarn classpath` -d . ../hw4/YearReducer.java
