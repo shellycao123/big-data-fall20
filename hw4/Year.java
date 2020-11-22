@@ -5,23 +5,23 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
-public class Count {
+public class Year {
 
     public static void main(String[] args) throws Exception {
       if (args.length != 2) {
-        System.err.println("Usage: CountMapReduce <input path> <output path>");
+        System.err.println("Usage: YearMapReduce <input path> <output path>");
         System.exit(-1);
       }
       
       Job job = new Job();
-      job.setJarByClass(Count.class);
-      job.setJobName("Count");
+      job.setJarByClass(Year.class);
+      job.setJobName("Year");
   
       FileInputFormat.addInputPath(job, new Path(args[0]));
       FileOutputFormat.setOutputPath(job, new Path(args[1]));
       
-      job.setMapperClass(CountMapper.class);
-      job.setReducerClass(CountReducer.class);
+      job.setMapperClass(YearMapper.class);
+      job.setReducerClass(YearReducer.class);
   
       job.setOutputKeyClass(Text.class);
       job.setOutputValueClass(IntWritable.class);
