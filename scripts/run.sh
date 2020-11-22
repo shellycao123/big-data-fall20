@@ -15,4 +15,4 @@ jar -cvf year.jar *.class
 # Run the program
 hadoop jar year.jar Year /user/sc6472/project/project_input/cleaned/cleaned.csv /user/sc6472/project/project_output/year_distribution
 hdfs dfs -cat project/project_output/year_distribution/part-r-00000
-hdfs dfs -copyToLocal project/project_output/year_distribution/part-r-00000 /home/sc6472/year_distribution.txt
+hdfs dfs -copyToLocal project/project_output/year_distribution/part-r-00000 /home/sc6472/big-data-fall20/hw4/year_distribution.txt
