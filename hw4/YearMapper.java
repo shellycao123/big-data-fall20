@@ -4,8 +4,8 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.io.IntWritable;
-import java.util.Integer;
-import java.Exception;
+import java.lang.Integer;
+import java.lang.Exception;
 
 
 public class YearMapper
