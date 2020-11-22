@@ -14,11 +14,13 @@ public class GenreMapper
   public void map(LongWritable key, Text value, Context context)
       throws IOException, InterruptedException {
     String[] info = value.toString().split(",")[3].split("[\",]");
-    for(String genre : info){
+    /*for(String genre : info){
         if(genre.length() != 0){
             context.write(new Text(genre), new IntWritable(1));
         }
-    }
+    }*/
+    context.write(new Text(Arrays.toString(info)), new IntWritable(1));
+
 
     
   }
