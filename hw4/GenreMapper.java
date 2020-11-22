@@ -14,7 +14,7 @@ public class GenreMapper
   public void map(LongWritable key, Text value, Context context)
       throws IOException, InterruptedException {
     String[] info = value.toString().split(",")[3].split("[\",]");
-    for(String genre : info[3]){
+    for(String genre : info){
         context.write(new Text(genre), new IntWritable(1));
     }
 
