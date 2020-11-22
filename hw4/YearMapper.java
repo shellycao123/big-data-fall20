@@ -21,7 +21,7 @@ public class YearMapper
         context.write(new Text(info[2]), new IntWritable(1));
     }
     catch(Exception e){
-        context.write(new Text(info), new IntWritable(1));
+        context.write(value, new IntWritable(1));
     }
 
     
