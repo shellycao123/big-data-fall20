@@ -4,8 +4,6 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.io.IntWritable;
-import java.lang.Integer;
-import java.lang.Exception;
 
 
 public class YearMapper
@@ -15,14 +13,9 @@ public class YearMapper
   @Override
   public void map(LongWritable key, Text value, Context context)
       throws IOException, InterruptedException {
-    try{
-        String[] info = value.toString().split(",");
-        int year = Integer.parseInt(info[2]);
-        context.write(new Text(info[2]), new IntWritable(1));
-    }
-    catch(Exception e){
-        context.write(value, new IntWritable(1));
-    }
+    String[] info = value.toString().split(",");
+    int year = Integer.parseInt(info[2]);
+    context.write(new Text(info[2]), new IntWritable(1));
 
     
   }
