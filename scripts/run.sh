@@ -3,16 +3,16 @@
 # Remove class and jar files
 rm *.class
 rm *.jar
-hdfs dfs -rm -r -f project_output/origin_count
+hdfs dfs -rm -r -f project_output/origin_Year
 # Compile
-javac -classpath `yarn classpath` -d . ../hw4/CountRecsMapper.java
-javac -classpath `yarn classpath` -d . ../hw4/CountRecsReducer.java
-javac -classpath `yarn classpath`:. -d . ../hw4/CountRecs.java
+javac -classpath `yarn classpath` -d . ../hw4/YearMapper.java
+javac -classpath `yarn classpath` -d . ../hw4/YearReducer.java
+javac -classpath `yarn classpath`:. -d . ../hw4/Year.java
 
 # Create jar file
-jar -cvf CountRecs.jar *.class
+jar -cvf years.jar *.class
 
 # Run the program
-hadoop jar CountRecs.jar CountRecs /user/sc6472/project_input/origin/hbo.csv /user/sc6472/project_output/origin_count
-hdfs dfs -cat project_output/origin_count/part-r-00000
-hdfs dfs -copyToLocal project_output/origin_count/part-r-00000 /home/sc6472/origin_count.csv
+hadoop jar years.jar Years /user/sc6472/project_input/origin/hbo.csv /user/sc6472/project_output/year_distribution
+hdfs dfs -cat project_output/year_distribution/part-r-00000
+hdfs dfs -copyToLocal project_output/year_distribution/part-r-00000 /home/sc6472/year_distribution.txt
