@@ -1,0 +1,2 @@
+wget https://query.data.world/s/jjcob3cqimnuz6egxita2w2qld5jaq -O hbo.csv
+hdfs dfs -put ./hbo.csv project/project_input/origin
