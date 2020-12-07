@@ -11,7 +11,7 @@ f.seek(0)
 
 for i, line in enumerate(f):
 	sent = line.split("\t")
-	ind = random.choice(range(len(answers)), k=10)
+	ind = random.sample(range(len(answers)), 10)
 	for j in ind:
 		if i != j:			
 			updated.write(sent[0] + "\t" + answers[j] + "\t0\n")
